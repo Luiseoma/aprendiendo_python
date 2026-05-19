@@ -1,0 +1,68 @@
+{
+    "Luis": {
+        "password": "luis1234",
+        "saldo": 1000,
+        "intentos": 0,
+        "bloqueado": false
+    },
+    "Maria": {
+        "password": "maria1234",
+        "saldo": 1500,
+        "intentos": 0,
+        "bloqueado": false
+    },
+    "Carlos": {
+        "password": "carlos1234",
+        "saldo": 2000,
+        "intentos": 0,
+        "bloqueado": false
+    },
+    "Ana": {
+        "password": "ana1234",
+        "saldo": 1200,
+        "intentos": 0,
+        "bloqueado": false
+    },
+    "Pedro": {
+        "password": "pedro1234",
+        "saldo": 1800,
+        "intentos": 0,
+        "bloqueado": false
+    },
+    "Laura": {
+        "password": "laura1234",
+        "saldo": 2500,
+        "intentos": 0,
+        "bloqueado": false
+    },
+    "Jose": {
+        "password": "jose1234",
+        "saldo": 5000,
+        "intentos": 0,
+        "bloqueado": false
+    },
+    "Deivis": {
+        "password": "deivis1234",
+        "saldo": 3000,
+        "intentos": 0,
+        "bloqueado": false
+    },
+    "Edgar": {
+        "password": "edgar1234",
+        "saldo": 3500,
+        "intentos": 0,
+        "bloqueado": false
+    },
+    "Eduardo": {
+        "password": "eduardo1234",
+        "saldo": 1000.0,
+        "intentos": 0,
+        "bloqueado": false
+    },
+    "Veronica": {
+        "password": "veronica1234",
+        "saldo": 4500,
+        "intentos": 0,
+        "bloqueado": false
+    }
+}
