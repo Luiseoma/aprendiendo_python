@@ -1,4 +1,5 @@
 from flask import Flask, request, session, redirect, url_for, flash
+from flask import render_template
 
 app = Flask(__name__)
 app.secret_key = "clave_secreta_para_sesiones"
@@ -25,13 +26,7 @@ def login():
 
             session["usuario"] = usuario
             
-            return f"""
-            <h1>Bienvenido {usuario} 😄</h1>
-            
-            <h2>Tu saldo actual es: ${usuarios_registrados[usuario]['saldo']}.</h2>
-            
-            <a href="/retirar">Retirar dinero</a>
-            """
+            return redirect(url_for("dashboard"))
  
         
         else:
@@ -39,29 +34,27 @@ def login():
             return redirect(url_for("login"))
     
 
-    return """
-    <h1>Login Cajero</h1>
+    return render_template("login.html")
 
-    <form method="POST">
+@app.route("/dashboard")
+def dashboard():
+    if "usuario" not in session:
+        return redirect(url_for("login"))
+    
+    usuario = session["usuario"]
 
-        <input type="text" name="usuario" placeholder="Usuario">
-
-        <br><br>
-
-        <input type="password" name="contraseña" placeholder="Contraseña">
-
-        <br><br>
-
-        <button type="submit">Ingresar</button>
-
-    </form>
+    return f"""
+    <h1>Bienvenido, {usuario}!</h1>
+    <h2>Tu saldo actual es: ${usuarios_registrados[usuario]['saldo']}.</h2>
+    <a href="/retirar">Retirar Dinero</a><br>
+    <a href="/logout">Cerrar Sesión</a>
     """
 
 @app.route("/retirar", methods=["GET", "POST"])
 def retirar():
 
     if "usuario" not in session:
-        return "<h1>Debes iniciar sesión para acceder a esta página</h1>"
+        return redirect(url_for("login"))
     
     usuario = session["usuario"]
 
@@ -69,9 +62,11 @@ def retirar():
         monto = float(request.form["monto"])
 
         if monto <= 0:
-            return redirect(url_for("retirar"))
+            flash("El monto a retirar debe ser mayor a cero")
+            return redirect(url_for("retirar")) 
         
         if monto > usuarios_registrados[usuario]["saldo"]:
+            flash("Fondos insuficientes")
             return redirect(url_for("retirar"))
         
         usuarios_registrados[usuario]["saldo"] -= monto
@@ -82,18 +77,7 @@ def retirar():
         <h2>Tu saldo actual es: ${usuarios_registrados[usuario]['saldo']}.</h2>
         <a href="/">Volver al menú principal</a>
         """
-    
-    return """
-    <h1>Retirar Dinero</h1>
-
-    <form method="POST">
-        <input type="number" name="monto" placeholder="Monto a retirar">
-
-        <br><br>
-
-        <button type="submit">Retirar</button>
-    </form>
-    """
+    return render_template("retirar.html")
 
 app.run(debug=True)
 

@@ -1,0 +1,19 @@
+<h1>Retirar Dinero</h1>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul style="color: red;">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+<form method="POST">
+    <input type="number" name="monto" placeholder="Monto a retirar">
+    <button type="submit">Retirar</button>
+</form>
+
+</br>
+<a href="/dashboard">Volver al menú principal</a>
