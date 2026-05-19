@@ -1,4 +1,4 @@
-mensajeDeBienvenida = 'bienvenido a Python es un placere tenerte aquí'
+mensajeDeBienvenida = 'bienvenido a Python es un placer tenerte aquí'
 
 
 

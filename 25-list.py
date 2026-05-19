@@ -41,7 +41,7 @@ print(nombre_estacion)
 nombre_estacion.append('Exposicion')
 print(nombre_estacion)
 
-#Eliminar una estación
+#Eliminar por nombre
 nombre_estacion.remove('N/A')
 print(nombre_estacion) 
 
@@ -57,3 +57,5 @@ print(nombre_estacion)
 #eliminar con pop una posicion en especifico
 nombre_estacion.pop(1)
 print(nombre_estacion)
+
+

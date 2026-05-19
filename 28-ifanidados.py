@@ -26,3 +26,16 @@ if usuario_autenticado:
         print("Bienvenido, puedes acceder a tu cuenta")
 else:
     print("Debes iniciar sesión para acceder a tu cuenta")
+
+#If elif y else
+
+ocupacion = 'Estudiante'
+
+if ocupacion == 'Estudiante':
+    print("Eres un estudiante")
+elif ocupacion == 'Trabajador':
+    print("Eres un trabajador")
+else:
+    print("Eres un desconocido")
+
+    

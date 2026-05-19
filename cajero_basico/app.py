@@ -1,6 +1,7 @@
-from flask import Flask, request
+from flask import Flask, request, session, redirect, url_for, flash
 
 app = Flask(__name__)
+app.secret_key = "clave_secreta_para_sesiones"
 
 usuarios_registrados = {
     "Luis": {"contraseña": "luis1234", "saldo": 1000},
@@ -21,6 +22,8 @@ def login():
         contraseña = request.form["contraseña"]
 
         if usuario in usuarios_registrados and usuarios_registrados[usuario]["contraseña"] == contraseña:
+
+            session["usuario"] = usuario
             
             return f"""
             <h1>Bienvenido {usuario} 😄</h1>
@@ -32,7 +35,8 @@ def login():
  
         
         else:
-            return "<h1>Usuario o contraseña incorrectos ❌</h1>"
+            flash("Usuario o contraseña incorrectos")
+            return redirect(url_for("login"))
     
 
     return """
@@ -55,10 +59,29 @@ def login():
 
 @app.route("/retirar", methods=["GET", "POST"])
 def retirar():
+
+    if "usuario" not in session:
+        return "<h1>Debes iniciar sesión para acceder a esta página</h1>"
+    
+    usuario = session["usuario"]
+
     if request.method == "POST":
         monto = float(request.form["monto"])
 
-        return f"<h1>Intentaste retirar ${monto}</h1>"
+        if monto <= 0:
+            return redirect(url_for("retirar"))
+        
+        if monto > usuarios_registrados[usuario]["saldo"]:
+            return redirect(url_for("retirar"))
+        
+        usuarios_registrados[usuario]["saldo"] -= monto
+
+        return f"""
+        <h1>Retiro exitoso</h1>
+        <h2>Retiraste ${monto}</h2>
+        <h2>Tu saldo actual es: ${usuarios_registrados[usuario]['saldo']}.</h2>
+        <a href="/">Volver al menú principal</a>
+        """
     
     return """
     <h1>Retirar Dinero</h1>
