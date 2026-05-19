@@ -16,7 +16,7 @@ usuarios_registrados = {
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
-  
+
     if request.method == "POST":
 
         usuario = request.form["usuario"]
@@ -75,9 +75,14 @@ def retirar():
         <h1>Retiro exitoso</h1>
         <h2>Retiraste ${monto}</h2>
         <h2>Tu saldo actual es: ${usuarios_registrados[usuario]['saldo']}.</h2>
-        <a href="/">Volver al menú principal</a>
+        <a href="/dashboard">Volver al menú principal</a>
         """
     return render_template("retirar.html")
+
+@app.route("/logout")
+def logout():
+    session.pop("usuario", None)
+    return redirect(url_for("login"))   
 
 app.run(debug=True)
 

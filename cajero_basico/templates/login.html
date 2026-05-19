@@ -1,5 +1,14 @@
 <h1>Login Cajero</h1>
 
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <script>
+        let mensaje = "{{ messages[0] }}";
+        alert("❌ {{ messages[0] }}");
+    </script>
+  {% endif %}
+{% endwith %}
+
 <form method="POST">
     <input type="text" name="usuario" placeholder="Usuario">
     <br><br>
