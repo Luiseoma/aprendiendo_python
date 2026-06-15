@@ -21,33 +21,33 @@ curso_promedio = 4
 
 diferencia_fast = 100 - (curso_actual / curso_rapido * 100)
 
-print(f'El curso actual dura un {diferencia_fast}% menos que el más rápido')
+print(f'El curso actual dura un {round(diferencia_fast)}% menos que el más rápido')
 
-diferencia_low = 100 - (curso_actual * 1000 // curso_lento / 10)
+diferencia_low = 100 - (curso_actual / curso_lento * 100)
 
-print(f'El curso actual dura un {diferencia_low}% menos que el curso más lento')
+print(f'El curso actual dura un {round(diferencia_low)}% menos que el curso más lento')
 
 diferencia_prom = 100 - (curso_actual / curso_promedio * 100)
 
-print(f'El curso actual dura un {diferencia_prom}% menos que el curso promedio')
+print(f'El curso actual dura un {round(diferencia_prom)}% menos que el curso promedio')
 
 crudo_otros_cursos = 5 
 crudo_curso_actual = 3.5
 
 #Material inservible
 
-matIn_otros_cursos = 100 - (curso_promedio * 1000 // crudo_otros_cursos / 10)
+matIn_otros_cursos = 100 - (curso_promedio  / crudo_otros_cursos *100)
 
-print(f'El material inservible de otros cursos es un {matIn_otros_cursos}%')
+print(f'El material inservible de otros cursos es un {round(matIn_otros_cursos)}%')
 
-matIn_curso_actual = 100 - (curso_actual * 1000 // crudo_curso_actual / 10)
+matIn_curso_actual = 100 - (curso_actual / crudo_curso_actual *100)
 
-print(f'El material inservible del curso actual es de un {matIn_curso_actual}%')
+print(f'El material inservible del curso actual es de un {round(matIn_curso_actual)}%')
 
 #equivalencia de cursos
-print(f'Ver 10 horas de este curso equivale a ver {curso_promedio *100 // curso_actual / 10} horas de otros cursos')
+print(f'Ver 10 horas de este curso equivale a ver {round(curso_promedio / curso_actual * 10, 1)} horas de otros cursos')
 
-print(f'Ver 10 horas de otros cursos equivale a ver {curso_actual * 100 // curso_promedio / 10} horas de l curso actual')
+print(f'Ver 10 horas de otros cursos equivale a ver {round(curso_actual / curso_promedio * 10, 1)} horas de el curso actual')
 
 
 

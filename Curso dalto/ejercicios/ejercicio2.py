@@ -8,8 +8,10 @@
 frase = input("Dime algo y calculo cuanto tardarías en decirlo: ")
 palabras_separadas = frase.split(" ")
 cantidad_de_palabras = len(palabras_separadas)
+tiempo = cantidad_de_palabras / 2
+tiempo_dalto = tiempo / 1.3
 
-print(f"Dijiste {cantidad_de_palabras} palabras, y tardarías {cantidad_de_palabras/2} segundos en decirlo")
-print (f'Dalto lo diría en {cantidad_de_palabras * 100 // 2 // 1.3 / 100} segundos en decirlo')
-if cantidad_de_palabras > 120:
+print(f"Dijiste {cantidad_de_palabras} palabras, y tardarías {round(tiempo, 1)} segundos en decirlo")
+print (f'Dalto lo diría en {round(tiempo_dalto, 1)} segundos en decirlo')
+if tiempo > 60:
     print("tampoco te pedí tantas palabras")
