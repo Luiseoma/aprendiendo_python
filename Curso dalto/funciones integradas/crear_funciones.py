@@ -20,7 +20,7 @@ saludar("Luis", "hombre")
 saludar("Veronica", "mujer")
 saludar("Frank", "No se sabe")
 
-#crear una función que no retorne valores
+#crear una función que nos retorne valores
 def crear_contraseña(num):
     chars = "abcdefghij"
     num_entero = str(num)
@@ -31,7 +31,7 @@ def crear_contraseña(num):
     contraseña = f"{chars[c1]}{chars[c2]}{chars[c3]}{num*2}"
     return contraseña
 
-password = crear_contraseña(98)
+password = crear_contraseña(0)
 frase = f"Tu contraseña nueva es: {password}"
 print(frase)
     
