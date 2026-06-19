@@ -11,3 +11,13 @@
 #o
 #
 #False
+
+def es_positivo(numero):
+    if numero < 0:
+        return False
+    
+    return True
+        
+numero = float(input("Ingrese un número: "))
+
+print(es_positivo(numero))
