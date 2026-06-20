@@ -16,3 +16,28 @@
 #funciones
 #input
 #operadores
+
+opcion = int(input("Ingrese una opción: "))
+
+while opcion != 4:
+    if opcion == 1:
+        print("Elegiste sumar")
+        num1 = float(input("Ingrese numero: "))
+        num2 = float(input("Ingrese numero: "))
+        print(f"El resultado es: {num1 + num2}")
+    elif opcion == 2: 
+        print("Elegiste restar")
+        num1 = float(input("Ingrese numero: "))
+        num2 = float(input("Ingrese numero: "))
+        print(f"El resultado es: {num1 - num2}")
+    elif opcion == 3:
+        print("Elegiste multiplicar")
+        num1 = float(input("Ingrese numero: "))
+        num2 = float(input("Ingrese numero: "))
+        print(f"El resultado es: {num1 * num2}")
+    else:
+        print("Ingrese una opción válida")
+
+    opcion = int(input("Ingrese una opción: "))    
+
+print("Saliendo del sistema")  

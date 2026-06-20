@@ -4,3 +4,5 @@
 #
 #def cuadrado(x):
 #    return x * x
+
+cuadrado = lambda x : x*x

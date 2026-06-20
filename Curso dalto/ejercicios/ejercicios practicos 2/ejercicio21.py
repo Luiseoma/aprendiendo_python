@@ -13,3 +13,10 @@
 #split()
 #len()
 #upper()
+
+frase = input("Ingrese una frase: ")
+frase_mayus = frase.upper()
+frase2 = frase.split()
+
+print(len(frase2))
+print(frase_mayus)

@@ -5,3 +5,5 @@
 #Ejemplo:
 #
 #mayor = lambda a, b: ?
+
+mayor = lambda a, b : max(a, b)
