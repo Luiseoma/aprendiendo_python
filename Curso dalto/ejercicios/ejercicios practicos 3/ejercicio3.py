@@ -7,3 +7,11 @@
 #Pistas:
 #lower()
 #replace()
+
+nombre = (input("Ingrese nombre de usuario: "))
+nombre2= nombre.replace("ñ", "n")
+usuario = nombre2.lower().replace(" ", ".")
+
+correo_listo = usuario + "@empresa.com"
+
+print(correo_listo)
